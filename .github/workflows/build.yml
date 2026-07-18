@@ -39,7 +39,11 @@ jobs:
           export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platform-tools
           yes | sdkmanager --licenses
           sdkmanager "platform-tools" "platforms;android-31" "build-tools;31.0.0" "ndk;25.2.9519653"
-          
+
+     - name: Install python-for-android manually
+  run: |
+    pip install git+https://github.com/kivy/python-for-android.git@master
+
       - name: Build APK
         env:
           ANDROID_SDK_ROOT: /home/runner/android-sdk
